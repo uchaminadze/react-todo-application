@@ -1,0 +1,123 @@
+.todo__item{
+    display: flex;
+    align-items: flex-start;
+    border-top: 1px solid #F2F2F2;
+    padding: 20px 0 20px 10px;
+    background-color: white;
+    position: relative;
+
+    .item__remove{
+
+        position: absolute;
+        right: 20px;
+        cursor: pointer;
+        padding: 0px 8px 0px 8px;
+        display: none;
+
+        &__left{
+            display: block;
+            width: 1px;
+            height: 20px;
+            background-color: #B99696;
+            transform: rotate(37deg);
+        }
+
+        &__right{
+            display: block;
+            width: 1px;
+            height: 20px;
+            background-color: #B99696;
+            transform: translate(0,-100%) rotate(-37deg);
+        }
+      }
+
+
+    .is__hover {
+        display: block;
+    }
+
+    form{
+        width: 97%;
+    }
+
+    &__input {
+        width: 100%;
+        margin-left: 3%;
+        outline: none;
+        padding: 20px;
+        border: 1px solid #8E8D8E;
+    }
+}
+
+
+.is__double__clicked {
+    padding: 0;
+}
+
+
+.prevent__double__click {
+    pointer-events: none;       
+}
+
+
+.container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    .checkmark{
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 25px;
+        width: 25px;
+        border-radius: 100%;
+        border: 1px solid #E6ECEC;
+
+        &::after{
+            content: "";
+            position: absolute;
+            display: none;
+            left: 9px;
+            top: 5px;
+            width: 5px;
+            height: 10px;
+            border: solid #88C9BD;
+            border-width: 0 2px 2px 0;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+    }
+
+    input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+
+		&:checked {
+			~ {
+				.checkmark {
+                    border: 1px solid #88C9BD;
+					&:after {
+						display: block;
+					}
+				}
+			}
+		}
+	}
+  }
+
+  .item__overline {
+    text-decoration: line-through;
+    color: #E1E1E2;
+  }
